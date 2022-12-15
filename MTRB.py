@@ -24,8 +24,9 @@ def MTRB(x, d_list, enbale=True):
         _t = conv_func(t, 64, 3, dilation_rate=d_list[i])
         t = tf.keras.layers.Concatenate(axis=-1)([_t, t])
     t = conv(t, 64, 3)
-    # t = adaptive_implicit_trans()(t)
+    t = adaptive_implicit_trans()(t)
     t = conv(t, 128, 1)
-    t = tf.keras.layers.Rescaling(scale=0.1)(t)  
+#     t = tf.keras.layers.Rescaling(scale=0.1)(t)  
+#     t = t / 10
     t = tf.keras.layers.Add()([x, t])
     return t
