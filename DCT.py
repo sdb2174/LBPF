@@ -12,7 +12,7 @@ class BlockDCT(tf.keras.layers.Layer):
             shape = (1,1,64,1),
             initializer = tf.keras.initializers.get('ones'),
             constraint = tf.keras.constraints.NonNeg(),
-            name = 'ait_conv')
+            name = 'Block_DCT_conv')
         kernel = np.zeros(conv_shape)
         
         r1 = sqrt(1.0/8)
